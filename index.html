@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Premium Wire Mesh Calculator</title>
+    <title>Premium Wire Mesh Micron Calculator</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -29,8 +29,6 @@
             padding: 20px;
             position: relative;
         }
-
-        /* BACKGROUND GLOW */
 
         .bg1,
         .bg2 {
@@ -86,8 +84,6 @@
             z-index: 2;
         }
 
-        /* HEADER */
-
         .header {
             text-align: center;
             margin-bottom: 30px;
@@ -118,8 +114,6 @@
             }
         }
 
-        /* GLASS CARD */
-
         .glass {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -143,8 +137,6 @@
                 transform: translateY(0px);
             }
         }
-
-        /* INPUT GRID */
 
         .grid {
             display: grid;
@@ -187,8 +179,6 @@
             background: #111;
         }
 
-        /* BUTTON */
-
         .button-area {
             text-align: center;
             margin-top: 35px;
@@ -212,8 +202,6 @@
             transform: translateY(-5px) scale(1.03);
             box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
         }
-
-        /* RESULT SECTION */
 
         .results {
             margin-top: 40px;
@@ -262,8 +250,6 @@
             word-break: break-word;
         }
 
-        /* FORMULA SECTION */
-
         .formulas {
             margin-top: 40px;
             display: grid;
@@ -289,16 +275,12 @@
             font-size: 0.95rem;
         }
 
-        /* FOOTER */
-
         .footer {
             text-align: center;
             margin-top: 35px;
             color: #9b9b9b;
             font-size: 0.9rem;
         }
-
-        /* MOBILE */
 
         @media(max-width:600px) {
 
@@ -329,18 +311,12 @@
 
     <div class="container">
 
-        <!-- HEADER -->
-
         <div class="header">
             <h1>WIRE MESH CALCULATOR</h1>
             <p>Premium Responsive Plain & Dutch Weave System</p>
         </div>
 
-        <!-- MAIN CARD -->
-
         <div class="glass">
-
-            <!-- INPUTS -->
 
             <div class="grid">
 
@@ -375,15 +351,11 @@
 
             </div>
 
-            <!-- BUTTON -->
-
             <div class="button-area">
                 <button onclick="calculateMesh()">
                     Calculate Now
                 </button>
             </div>
-
-            <!-- RESULTS -->
 
             <div class="results">
 
@@ -393,7 +365,7 @@
                 </div>
 
                 <div class="card">
-                    <h3>Thickness (T)</h3>
+                    <h3>Thickness (Micron)</h3>
                     <p id="thickness">0</p>
                 </div>
 
@@ -408,8 +380,6 @@
                 </div>
 
             </div>
-
-            <!-- FORMULAS -->
 
             <div class="formulas">
 
@@ -455,15 +425,11 @@
 
         </div>
 
-        <!-- FOOTER -->
-
         <div class="footer">
             Fully Responsive • Mobile Optimized • Rich Glass UI
         </div>
 
     </div>
-
-    <!-- JAVASCRIPT -->
 
     <script>
 
@@ -496,12 +462,12 @@
                 let L = 25.4 / warpMesh;
 
                 opening =
-                    (D *
+                    warpMesh *
                     ((L - D - d) /
-                        (L + D + d)))*1000;
+                        (L + D + d)) * 1000;
 
                 thickness =
-                    D + d + d;
+                    (D + d + d) * 1000;
 
                 constant =
                     weftMesh * d;
@@ -509,7 +475,7 @@
                 weight =
                     ((D * D * 0.493 * warpMesh) / 2)
                     +
-                    (d * d * 0.493 * weftMesh)/2;
+                    ((d * d * 0.493 * weftMesh) / 2);
 
             }
 
@@ -518,10 +484,10 @@
             else {
 
                 opening =
-                    (25.4 / warpMesh) - D;
+                    ((25.4 / warpMesh) - D) * 1000;
 
                 thickness =
-                    D + d + d;
+                    (D + d + d) * 1000;
 
                 constant =
                     weftMesh * d;
@@ -531,19 +497,19 @@
 
             }
 
-            /* SHOW RESULTS */
+            /* ROUND OFF */
 
             document.getElementById("opening").innerHTML =
-                opening.toFixed(3);
+                Math.round(opening) + " µm";
 
             document.getElementById("thickness").innerHTML =
-                thickness.toFixed(3);
+                Math.round(thickness) + " µm";
 
             document.getElementById("constant").innerHTML =
-                constant.toFixed(3);
+                Math.round(constant);
 
             document.getElementById("weight").innerHTML =
-                weight.toFixed(3) + " Kg";
+    weight.toFixed(2) + " Kg";
 
         }
 
