@@ -367,8 +367,8 @@
                 <label>Weave Type</label>
 
                 <select id="weaveType">
-                    <option value="plain">Plain Weave</option>
-                    <option value="dutch">Dutch Weave</option>
+                    <option value="plain">Plain/Twill Weave</option>
+                    <option value="dutch">PLain Dutch/Twill Dutch Weave</option>
                 </select>
             </div>
 
@@ -476,7 +476,7 @@
         else {
 
             opening =
-                (25.4 / warpMesh) - D;
+                ((25.4 / warpMesh) - D)*1000;
 
             thickness =
                 D + d + d;
@@ -495,7 +495,7 @@
     Math.round(opening);
 
 document.getElementById("thickness").innerHTML =
-    Math.round(thickness);
+    weight.toFixed(3); 
 
 document.getElementById("constant").innerHTML =
     Math.round(constant);
