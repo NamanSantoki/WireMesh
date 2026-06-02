@@ -1,3 +1,585 @@
+
+
+
+
+
+
+
+
+givemake a webpage , decent animation and soft black white theme , ans some colors if need , make it supper rich theme
+
+Yes — you can deploy this directly on your GitHub profile using GitHub Pages.
+
+Your GitHub:
+NamanSantoki GitHub Profile
+
+Follow these exact steps:
+
+STEP 1 — Create New Repository
+Open:
+
+Create New Repository
+
+Repository name:
+
+wire-mesh-calculator
+Set:
+
+✅ Public
+
+✅ Add README
+
+Click:
+
+Create Repository
+STEP 2 — Upload Your Website
+Inside repository:
+
+Add file
+→ Upload files
+Create a file named:
+
+index.html
+Paste the FULL code I gave you.
+
+Then click:
+
+Commit changes
+STEP 3 — Enable GitHub Pages
+Go to:
+
+Settings
+Then:
+
+Pages
+Under:
+
+Build and deployment
+Choose:
+
+Deploy from branch
+Select:
+
+Branch → main
+
+Folder → /root
+
+Click:
+
+Save
+GitHub Pages officially supports deployment directly from a branch in repository settings. 
+
+STEP 4 — Wait 1 Minute
+Your live website will appear at:
+
+https://namansantoki.github.io/wire-mesh-calculator/
+OPTIONAL — Make It Look EVEN MORE PREMIUM
+You can later add:
+
+Loading animation
+
+Glass morphism particles
+
+Dark/light toggle
+
+Export PDF
+
+Save calculations
+
+Mobile swipe cards
+
+Animated graphs
+
+Company logo
+
+PWA app install
+
+Offline support
+
+BEST STRUCTURE
+Your repo should look like:
+
+wire-mesh-calculator
+│
+├── index.html
+├── style.css
+├── script.js
+└── assets/
+Right now all code is in one file which is fine for deployment.
+
+SUPER IMPORTANT
+If site shows 404 initially:
+
+wait 2–5 minutes
+
+refresh browser
+
+GitHub Pages can take a few minutes to publish changes. 
+
+GitHub Pages Docs:
+
+GitHub Pages Quickstart
+
+Publishing Source Guide
+
+GitHub Pages Beginner Guide
+
+
+use terminal
+
+Open terminal in your project folder and run these commands one-by-one.
+
+1. Clone Your Repository
+git clone https://github.com/NamanSantoki/wire-mesh-calculator.git
+2. Open Folder
+cd wire-mesh-calculator
+3. Create index.html
+Windows CMD:
+
+notepad index.html
+OR VS Code:
+
+code .
+Paste the full HTML code inside index.html
+
+Save it.
+
+4. Initialize Git (if needed)
+git init
+5. Add Files
+git add .
+6. Commit Files
+git commit -m "Added premium wire mesh calculator"
+7. Push to GitHub
+git push origin main
+If Git asks login:
+
+login with GitHub account
+
+authorize browser
+
+8. Enable GitHub Pages Using Terminal
+Run:
+
+git branch
+Make sure branch is:
+
+main
+Then open:
+
+https://github.com/NamanSantoki/wire-mesh-calculator/settings/pages
+Select:
+
+Source → Deploy from branch
+
+Branch → main
+
+Folder → /root
+
+Save.
+
+9. Your Live Website
+After 1–2 minutes:
+
+https://namansantoki.github.io/wire-mesh-calculator/
+OPTIONAL PROFESSIONAL STRUCTURE
+Later you can split files:
+
+mkdir assets
+Create:
+
+touch style.css
+touch script.js
+QUICK UPDATE COMMANDS
+Whenever you change code later:
+
+git add .
+git commit -m "updated ui"
+git push
+Your website auto-updates.
+
+
+Cloning into 'wire-mesh-calculator'...
+remote: Repository not found.
+fatal: repository 'https://github.com/NamanSantoki/wire-mesh-calculator.git/' not found
+
+That error means the repository does not exist yet on GitHub.
+
+First create it manually.
+
+Open:
+
+Create Repository
+
+Use:
+
+Repository name: wire-mesh-calculator
+Set:
+
+Public ✅
+
+Do NOT initialize with README ❌
+
+Then click:
+
+Create repository
+After that, run these terminal commands again:
+
+git clone https://github.com/NamanSantoki/wire-mesh-calculator.git
+OR easier method:
+
+BEST METHOD (Recommended)
+Create folder locally first:
+
+mkdir wire-mesh-calculator
+cd wire-mesh-calculator
+Now create file:
+
+notepad index.html
+Paste the code and save.
+
+Then run:
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/NamanSantoki/wire-mesh-calculator.git
+git push -u origin main
+After pushing:
+
+Open:
+
+GitHub Pages Settings
+
+Select:
+
+Deploy from branch
+
+main
+
+/root
+
+Save.
+
+Your website will become live at:
+
+https://namansantoki.github.io/wire-mesh-calculator/
+
+D is a warp wire diameter ,
+
+Then update the labels/formulas like this for correct engineering terminology:
+
+// D = Warp Wire Diameter
+// d = Weft Wire Diameter
+Replace these labels in HTML:
+
+<label>Warp Diameter (D)</label>
+
+<label>Weft Diameter (d)</label>
+And update the formula section to:
+
+<div class="formula-box">
+    <h2>Dutch Weave Formula</h2>
+
+    <p>
+        L = 25.4 / Warp Mesh<br><br>
+
+        Opening =
+        Warp Mesh ×
+        ((L - D - d) / (L + D + d))
+        <br><br>
+
+        Thickness = D + d + d
+        <br><br>
+
+        Constant = Weft Mesh × d
+    </p>
+</div>
+And for Plain Weave:
+
+<div class="formula-box">
+    <h2>Plain Weave Formula</h2>
+
+    <p>
+        Opening =
+        (25.4 / Warp Mesh) - D
+        <br><br>
+
+        Thickness = D + d + d
+        <br><br>
+
+        Constant = Weft Mesh × d
+    </p>
+</div>
+This makes it technically correct:
+
+D → Warp wire diameter
+
+d → Weft wire diameter
+
+which is standard notation in wire mesh calculations.
+
+
+full code
+
+Plain Weave Formula
+Opening Formula
+Opening
+=
+(
+25.4
+Warp Mesh
+)
+−
+D
+Opening=( 
+Warp Mesh
+25.4
+​
+ )−D
+Where:
+
+25.4 = conversion from inch to mm
+
+Warp Mesh = number of openings per inch
+
+D = Warp Wire Diameter
+
+Thickness Formula
+T
+=
+D
++
+d
++
+d
+T=D+d+d
+Where:
+
+D = Warp Wire Diameter
+
+d = Weft Wire Diameter
+
+Constant Formula
+Constant
+=
+Weft Mesh
+×
+d
+Constant=Weft Mesh×d
+Weight Formula
+Weight
+=
+D
+2
+×
+0.493
+×
+Warp Mesh
+Weight=D 
+2
+ ×0.493×Warp Mesh
+Dutch Weave Formula
+Step 1
+L
+=
+25.4
+Warp Mesh
+L= 
+Warp Mesh
+25.4
+​
+ 
+Opening Formula
+Opening
+=
+Warp Mesh
+×
+(
+L
+−
+D
+−
+d
+L
++
+D
++
+d
+)
+Opening=Warp Mesh×( 
+L+D+d
+L−D−d
+​
+ )
+Where:
+
+L = pitch
+
+D = Warp Wire Diameter
+
+d = Weft Wire Diameter
+
+Thickness Formula
+T
+=
+D
++
+d
++
+d
+T=D+d+d
+Constant Formula
+Constant
+=
+Weft Mesh
+×
+d
+Constant=Weft Mesh×d
+Weight Formula
+Weight
+=
+(
+D
+2
+×
+0.493
+×
+Warp Mesh
+2
+)
++
+(
+d
+2
+×
+0.493
+×
+Weft Mesh
+)
+Weight=( 
+2
+D 
+2
+ ×0.493×Warp Mesh
+​
+ )+(d 
+2
+ ×0.493×Weft Mesh)
+Symbols Used
+Symbol	Meaning
+D	Warp Wire Diameter
+d	Weft Wire Diameter
+T	Thickness
+L	Pitch
+Mesh	Number of openings per inch
+Formula Visualization
+Plain Weave:
+
+Opening
+=
+(
+25.4
+Warp Mesh
+)
+−
+D
+Opening=( 
+Warp Mesh
+25.4
+​
+ )−D
+
+Dutch Weave:
+
+Opening
+=
+Warp Mesh
+×
+(
+L
+−
+D
+−
+d
+L
++
+D
++
+d
+)
+Opening=Warp Mesh×( 
+L+D+d
+L−D−d
+​
+ )
+
+
+
+Pasted text(2).txt
+Document
+
+round off in micron  and thickness
+
+For micron round-off and thickness round-off, update this section in your JavaScript.
+Your uploaded code already has most structure ready. 
+
+
+Replace ONLY the result display section with this:
+
+/* SHOW RESULTS */
+
+document.getElementById("opening").innerHTML =
+    Math.round(opening) + " µm";
+
+document.getElementById("thickness").innerHTML =
+    thickness.toFixed(2) + " mm";
+
+document.getElementById("constant").innerHTML =
+    constant.toFixed(2);
+
+document.getElementById("weight").innerHTML =
+    weight.toFixed(2) + " Kg";
+This will give:
+
+Opening → rounded whole micron
+Example:
+
+24 µm
+Thickness → 2 decimal places
+Example:
+
+0.35 mm
+Constant → 2 decimal places
+
+Weight → 2 decimal places
+
+Also your Dutch formula currently has a mistake:
+
+Replace this:
+
+opening =
+(D *
+((L - D - d) /
+(L + D + d)))*1000;
+WITH:
+
+opening =
+warpMesh *
+((L - D - d) /
+(L + D + d)) * 1000;
+Because:
+
+D = wire diameter
+
+not mesh count
+
+This correction makes the micron calculation technically correct.
+
+
+no , no decimal point , full code
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -312,7 +894,7 @@
     <div class="container">
 
         <div class="header">
-            <h1>WIRE MESH MICRON CALCULATOR</h1>
+            <h1>WIRE MESH CALCULATOR</h1>
             <p>Premium Responsive Plain & Dutch Weave System</p>
         </div>
 
@@ -365,7 +947,7 @@
                 </div>
 
                 <div class="card">
-                    <h3>Thickness (mm)</h3>
+                    <h3>Thickness (Micron)</h3>
                     <p id="thickness">0</p>
                 </div>
 
@@ -380,6 +962,51 @@
                 </div>
 
             </div>
+
+            <div class="formulas">
+
+                <div class="formula-box">
+
+                    <h2>Dutch Weave Formula</h2>
+
+                    <p>
+                        L = 25.4 / Warp Mesh
+                        <br><br>
+
+                        Opening =
+                        Warp Mesh ×
+                        ((L - D - d) / (L + D + d))
+                        <br><br>
+
+                        Thickness = D + d + d
+                        <br><br>
+
+                        Constant = Weft Mesh × d
+                    </p>
+
+                </div>
+
+                <div class="formula-box">
+
+                    <h2>Plain Weave Formula</h2>
+
+                    <p>
+                        Opening =
+                        (25.4 / Warp Mesh) - D
+                        <br><br>
+
+                        Thickness = D + d + d
+                        <br><br>
+
+                        Constant = Weft Mesh × d
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
         <div class="footer">
             Fully Responsive • Mobile Optimized • Rich Glass UI
         </div>
@@ -464,7 +1091,7 @@
                 Math.round(constant);
 
             document.getElementById("weight").innerHTML =
-    weight.toFixed(2) + " Kg";
+                Math.round(weight) + " Kg";
 
         }
 
@@ -473,3 +1100,566 @@
 </body>
 
 </html>
+
+just remove document.getElementById("weight").innerHTML =
+                Math.round(weight) + " Kg";
+i need 2 decimal point
+
+Replace ONLY this part:
+
+document.getElementById("weight").innerHTML =
+    Math.round(weight) + " Kg";
+WITH:
+
+document.getElementById("weight").innerHTML =
+    weight.toFixed(2) + " Kg";
+Now:
+
+Opening → no decimal
+
+Thickness → no decimal
+
+Weight → 2 decimal points
+
+Example:
+
+25.47 Kg
+
+
+Pasted text(3).txt
+Document
+dont change unit , no um , just 2 decimal places in weight , and round off in others
+
+Replace ONLY this result section in your JavaScript: 
+
+
+/* SHOW RESULTS */
+
+document.getElementById("opening").innerHTML =
+    Math.round(opening);
+
+document.getElementById("thickness").innerHTML =
+    Math.round(thickness);
+
+document.getElementById("constant").innerHTML =
+    Math.round(constant);
+
+document.getElementById("weight").innerHTML =
+    weight.toFixed(2) + " Kg";
+Now:
+
+Opening → rounded whole number
+
+Thickness → rounded whole number
+
+Constant → rounded whole number
+
+Weight → 2 decimal places only
+
+Example:
+
+Opening → 25
+Thickness → 350
+Weight → 24.56 Kg
+
+<title>Premium Wire Mesh Micron Calculator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at top left, #2a2a2a 0%, #101010 40%, #050505 100%);
+        color: white;
+        overflow-x: hidden;
+        padding: 20px;
+        position: relative;
+    }
+
+    /* BACKGROUND GLOW */
+
+    .bg1,
+    .bg2 {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(100px);
+        z-index: 0;
+    }
+
+    .bg1 {
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.05);
+        top: -100px;
+        left: -100px;
+        animation: move1 7s infinite alternate ease-in-out;
+    }
+
+    .bg2 {
+        width: 250px;
+        height: 250px;
+        background: rgba(255, 255, 255, 0.03);
+        bottom: -80px;
+        right: -80px;
+        animation: move2 8s infinite alternate ease-in-out;
+    }
+
+    @keyframes move1 {
+        from {
+            transform: translateY(0px);
+        }
+
+        to {
+            transform: translateY(30px);
+        }
+    }
+
+    @keyframes move2 {
+        from {
+            transform: translateY(0px);
+        }
+
+        to {
+            transform: translateY(-30px);
+        }
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1300px;
+        margin: auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* HEADER */
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+        animation: fadeDown 1s ease;
+    }
+
+    .header h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .header p {
+        color: #bdbdbd;
+        margin-top: 10px;
+        font-size: clamp(0.85rem, 2vw, 1rem);
+    }
+
+    @keyframes fadeDown {
+        from {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    /* GLASS CARD */
+
+    .glass {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        border-radius: 28px;
+        padding: clamp(20px, 4vw, 40px);
+        box-shadow:
+            0 10px 40px rgba(0, 0, 0, 0.6),
+            inset 0 0 20px rgba(255, 255, 255, 0.03);
+        animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    /* INPUT GRID */
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-group label {
+        margin-bottom: 8px;
+        color: #d6d6d6;
+        font-size: 0.95rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid transparent;
+        outline: none;
+        padding: 15px;
+        border-radius: 16px;
+        color: white;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    option {
+        background: #111;
+    }
+
+    /* BUTTON */
+
+    .button-area {
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    button {
+        border: none;
+        outline: none;
+        padding: 16px 45px;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #ffffff, #bfbfbf);
+        color: #111;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.4s;
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.12);
+    }
+
+    button:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+    }
+
+    /* RESULT SECTION */
+
+    .results {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 22px;
+        padding: 25px;
+        text-align: center;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 50%;
+        top: -50px;
+        right: -50px;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .card h3 {
+        color: #d9d9d9;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .card p {
+        font-size: clamp(1.4rem, 4vw, 2rem);
+        font-weight: 700;
+        word-break: break-word;
+    }
+
+    /* FORMULA SECTION */
+
+    .formulas {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .formula-box {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 20px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .formula-box h2 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+
+    .formula-box p {
+        color: #cfcfcf;
+        line-height: 1.8;
+        font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        text-align: center;
+        margin-top: 35px;
+        color: #9b9b9b;
+        font-size: 0.9rem;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:600px) {
+
+        body {
+            padding: 15px;
+        }
+
+        .glass {
+            padding: 18px;
+            border-radius: 20px;
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+        <h1>WIRE MESH MICRON CALCULATOR</h1>
+        <p>Premium Responsive Plain & Dutch Weave System</p>
+    </div>
+
+    <!-- MAIN CARD -->
+
+    <div class="glass">
+
+        <!-- INPUTS -->
+
+        <div class="grid">
+
+            <div class="input-group">
+                <label>Warp Mesh</label>
+                <input type="number" id="warpMesh" placeholder="Enter Warp Mesh">
+            </div>
+
+            <div class="input-group">
+                <label>Weft Mesh</label>
+                <input type="number" id="weftMesh" placeholder="Enter Weft Mesh">
+            </div>
+
+            <div class="input-group">
+                <label>Warp Wire Diameter (D)</label>
+                <input type="number" id="warpDia" placeholder="Enter Warp Diameter">
+            </div>
+
+            <div class="input-group">
+                <label>Weft Wire Diameter (d)</label>
+                <input type="number" id="weftDia" placeholder="Enter Weft Diameter">
+            </div>
+
+            <div class="input-group">
+                <label>Weave Type</label>
+
+                <select id="weaveType">
+                    <option value="plain">Plain Weave</option>
+                    <option value="dutch">Dutch Weave</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <div class="button-area">
+            <button onclick="calculateMesh()">
+                Calculate Now
+            </button>
+        </div>
+
+        <!-- RESULTS -->
+
+        <div class="results">
+
+            <div class="card">
+                <h3>Opening (Micron)</h3>
+                <p id="opening">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Thickness (mm)</h3>
+                <p id="thickness">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Constant</h3>
+                <p id="constant">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Weight / m²</h3>
+                <p id="weight">0</p>
+            </div>
+
+        </div>
+
+        <!-- FORMULAS -->
+
+        
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        Fully Responsive • Mobile Optimized • Rich Glass UI
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    function calculateMesh() {
+
+        let warpMesh =
+            parseFloat(document.getElementById("warpMesh").value) || 0;
+
+        let weftMesh =
+            parseFloat(document.getElementById("weftMesh").value) || 0;
+
+        let D =
+            parseFloat(document.getElementById("warpDia").value) || 0;
+
+        let d =
+            parseFloat(document.getElementById("weftDia").value) || 0;
+
+        let weaveType =
+            document.getElementById("weaveType").value;
+
+        let opening = 0;
+        let thickness = 0;
+        let constant = 0;
+        let weight = 0;
+
+        /* DUTCH WEAVE */
+
+        if (weaveType === "dutch") {
+
+            let L = 25.4 / warpMesh;
+
+            opening =
+                (D *
+                ((L - D - d) /
+                    (L + D + d)))*1000;
+
+            thickness =
+                D + d + d;
+
+            constant =
+                weftMesh * d;
+
+            weight =
+                ((D * D * 0.493 * warpMesh) / 2)
+                +
+                (d * d * 0.493 * weftMesh)/2;
+
+        }
+
+        /* PLAIN WEAVE */
+
+        else {
+
+            opening =
+                (25.4 / warpMesh) - D;
+
+            thickness =
+                D + d + d;
+
+            constant =
+                weftMesh * d;
+
+            weight =
+                D * D * 0.493 * warpMesh;
+
+        }
+
+        /* SHOW RESULTS */
+
+      document.getElementById("opening").innerHTML =
+    Math.round(opening);
+
+document.getElementById("thickness").innerHTML =
+    Math.round(thickness);
+
+document.getElementById("constant").innerHTML =
+    Math.round(constant);
+
+document.getElementById("weight").innerHTML =
+    weight.toFixed(2) + " Kg";
+
+    }
+    
+
+</script>
+
+Close
