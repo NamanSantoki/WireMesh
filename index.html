@@ -1,496 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Premium Wire Mesh Calculator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Premium Wire Mesh Calculator</title>
 
-<style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-body{
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top left,#2a2a2a 0%,#101010 40%,#050505 100%);
-    color:white;
-    overflow-x:hidden;
-    padding:20px;
-    position:relative;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* Animated Background Glow */
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, #2a2a2a 0%, #101010 40%, #050505 100%);
+            color: white;
+            overflow-x: hidden;
+            padding: 20px;
+            position: relative;
+        }
 
-.bg1,
-.bg2{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(100px);
-    z-index:0;
-}
+        /* BACKGROUND GLOW */
 
-.bg1{
-    width:300px;
-    height:300px;
-    background:rgba(255,255,255,0.05);
-    top:-100px;
-    left:-100px;
-    animation:move1 7s infinite alternate ease-in-out;
-}
+        .bg1,
+        .bg2 {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+        }
 
-.bg2{
-    width:250px;
-    height:250px;
-    background:rgba(255,255,255,0.03);
-    bottom:-80px;
-    right:-80px;
-    animation:move2 8s infinite alternate ease-in-out;
-}
+        .bg1 {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            top: -100px;
+            left: -100px;
+            animation: move1 7s infinite alternate ease-in-out;
+        }
 
-@keyframes move1{
-    from{
-        transform:translateY(0px);
-    }
-    to{
-        transform:translateY(30px);
-    }
-}
+        .bg2 {
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.03);
+            bottom: -80px;
+            right: -80px;
+            animation: move2 8s infinite alternate ease-in-out;
+        }
 
-@keyframes move2{
-    from{
-        transform:translateY(0px);
-    }
-    to{
-        transform:translateY(-30px);
-    }
-}
+        @keyframes move1 {
+            from {
+                transform: translateY(0px);
+            }
 
-.container{
-    width:100%;
-    max-width:1300px;
-    margin:auto;
-    position:relative;
-    z-index:2;
-}
+            to {
+                transform: translateY(30px);
+            }
+        }
 
-.header{
-    text-align:center;
-    margin-bottom:30px;
-    animation:fadeDown 1s ease;
-}
+        @keyframes move2 {
+            from {
+                transform: translateY(0px);
+            }
 
-.header h1{
-    font-size:clamp(2rem,5vw,4rem);
-    font-weight:700;
-    letter-spacing:2px;
-}
+            to {
+                transform: translateY(-30px);
+            }
+        }
 
-.header p{
-    color:#bdbdbd;
-    margin-top:10px;
-    font-size:clamp(0.85rem,2vw,1rem);
-}
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
 
-@keyframes fadeDown{
-    from{
-        opacity:0;
-        transform:translateY(-40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0px);
-    }
-}
+        /* HEADER */
 
-.glass{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    border-radius:28px;
-    padding:clamp(20px,4vw,40px);
-    box-shadow:
-    0 10px 40px rgba(0,0,0,0.6),
-    inset 0 0 20px rgba(255,255,255,0.03);
-    animation:fadeUp 1s ease;
-}
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeDown 1s ease;
+        }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0px);
-    }
-}
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-/* INPUT GRID */
+        .header p {
+            color: #bdbdbd;
+            margin-top: 10px;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:22px;
-}
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
 
-.input-group{
-    display:flex;
-    flex-direction:column;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
 
-.input-group label{
-    margin-bottom:8px;
-    color:#d6d6d6;
-    font-size:0.95rem;
-}
+        /* GLASS CARD */
 
-.input-group input,
-.input-group select{
-    width:100%;
-    background:rgba(255,255,255,0.08);
-    border:1px solid transparent;
-    outline:none;
-    padding:15px;
-    border-radius:16px;
-    color:white;
-    font-size:1rem;
-    transition:0.3s;
-}
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 28px;
+            padding: clamp(20px, 4vw, 40px);
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.03);
+            animation: fadeUp 1s ease;
+        }
 
-.input-group input:focus,
-.input-group select:focus{
-    border:1px solid rgba(255,255,255,0.4);
-    transform:scale(1.02);
-    box-shadow:0 0 20px rgba(255,255,255,0.1);
-}
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
 
-option{
-    background:#111;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
 
-/* BUTTON */
+        /* INPUT GRID */
 
-.button-area{
-    text-align:center;
-    margin-top:35px;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
 
-button{
-    border:none;
-    outline:none;
-    padding:16px 45px;
-    border-radius:50px;
-    background:linear-gradient(135deg,#ffffff,#bfbfbf);
-    color:#111;
-    font-weight:700;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.4s;
-    box-shadow:0 10px 30px rgba(255,255,255,0.12);
-}
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-button:hover{
-    transform:translateY(-5px) scale(1.03);
-    box-shadow:0 15px 35px rgba(255,255,255,0.2);
-}
+        .input-group label {
+            margin-bottom: 8px;
+            color: #d6d6d6;
+            font-size: 0.95rem;
+        }
 
-/* RESULT SECTION */
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid transparent;
+            outline: none;
+            padding: 15px;
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
 
-.results{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-}
+        .input-group input:focus,
+        .input-group select:focus {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
 
-.card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.07);
-    border-radius:22px;
-    padding:25px;
-    text-align:center;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
-}
+        option {
+            background: #111;
+        }
 
-.card::before{
-    content:"";
-    position:absolute;
-    width:120px;
-    height:120px;
-    background:rgba(255,255,255,0.03);
-    border-radius:50%;
-    top:-50px;
-    right:-50px;
-}
+        /* BUTTON */
 
-.card:hover{
-    transform:translateY(-8px);
-    background:rgba(255,255,255,0.07);
-}
+        .button-area {
+            text-align: center;
+            margin-top: 35px;
+        }
 
-.card h3{
-    color:#d9d9d9;
-    margin-bottom:15px;
-    font-size:1rem;
-    font-weight:500;
-}
+        button {
+            border: none;
+            outline: none;
+            padding: 16px 45px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ffffff, #bfbfbf);
+            color: #111;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.12);
+        }
 
-.card p{
-    font-size:clamp(1.4rem,4vw,2rem);
-    font-weight:700;
-    word-break:break-word;
-}
+        button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
 
-/* FORMULA SECTION */
+        /* RESULT SECTION */
 
-.formulas{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
-}
+        .results {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
 
-.formula-box{
-    background:rgba(255,255,255,0.04);
-    border-radius:20px;
-    padding:20px;
-    border:1px solid rgba(255,255,255,0.06);
-}
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 22px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
 
-.formula-box h2{
-    margin-bottom:15px;
-    font-size:1.2rem;
-}
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
 
-.formula-box p{
-    color:#cfcfcf;
-    line-height:1.8;
-    font-size:0.95rem;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.07);
+        }
 
-/* MOBILE */
+        .card h3 {
+            color: #d9d9d9;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
 
-@media(max-width:600px){
+        .card p {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            font-weight: 700;
+            word-break: break-word;
+        }
 
-    body{
-        padding:15px;
-    }
+        /* FORMULA SECTION */
 
-    .glass{
-        padding:18px;
-        border-radius:20px;
-    }
+        .formulas {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
 
-    .card{
-        padding:20px;
-    }
+        .formula-box {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
 
-    button{
-        width:100%;
-    }
+        .formula-box h2 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
 
-}
+        .formula-box p {
+            color: #cfcfcf;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
 
-/* FOOTER */
+        /* FOOTER */
 
-.footer{
-    text-align:center;
-    margin-top:35px;
-    color:#9b9b9b;
-    font-size:0.9rem;
-}
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            color: #9b9b9b;
+            font-size: 0.9rem;
+        }
 
-</style>
+        /* MOBILE */
+
+        @media(max-width:600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .glass {
+                padding: 18px;
+                border-radius: 20px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="bg1"></div>
-<div class="bg2"></div>
+    <div class="bg1"></div>
+    <div class="bg2"></div>
 
-<div class="container">
+    <div class="container">
 
-    <div class="header">
-        <h1>WIRE MESH CALCULATOR</h1>
-        <p>Premium Responsive Dutch & Plain Weave System</p>
+        <!-- HEADER -->
+
+        <div class="header">
+            <h1>WIRE MESH CALCULATOR</h1>
+            <p>Premium Responsive Plain & Dutch Weave System</p>
+        </div>
+
+        <!-- MAIN CARD -->
+
+        <div class="glass">
+
+            <!-- INPUTS -->
+
+            <div class="grid">
+
+                <div class="input-group">
+                    <label>Warp Mesh</label>
+                    <input type="number" id="warpMesh" placeholder="Enter Warp Mesh">
+                </div>
+
+                <div class="input-group">
+                    <label>Weft Mesh</label>
+                    <input type="number" id="weftMesh" placeholder="Enter Weft Mesh">
+                </div>
+
+                <div class="input-group">
+                    <label>Warp Wire Diameter (D)</label>
+                    <input type="number" id="warpDia" placeholder="Enter Warp Diameter">
+                </div>
+
+                <div class="input-group">
+                    <label>Weft Wire Diameter (d)</label>
+                    <input type="number" id="weftDia" placeholder="Enter Weft Diameter">
+                </div>
+
+                <div class="input-group">
+                    <label>Weave Type</label>
+
+                    <select id="weaveType">
+                        <option value="plain">Plain Weave</option>
+                        <option value="dutch">Dutch Weave</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <div class="button-area">
+                <button onclick="calculateMesh()">
+                    Calculate Now
+                </button>
+            </div>
+
+            <!-- RESULTS -->
+
+            <div class="results">
+
+                <div class="card">
+                    <h3>Opening (Micron)</h3>
+                    <p id="opening">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Thickness (T)</h3>
+                    <p id="thickness">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Constant</h3>
+                    <p id="constant">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Weight / m²</h3>
+                    <p id="weight">0</p>
+                </div>
+
+            </div>
+
+            <!-- FORMULAS -->
+
+            <div class="formulas">
+
+                <div class="formula-box">
+
+                    <h2>Dutch Weave Formula</h2>
+
+                    <p>
+                        L = 25.4 / Warp Mesh
+                        <br><br>
+
+                        Opening =
+                        Warp Mesh ×
+                        ((L - D - d) / (L + D + d))
+                        <br><br>
+
+                        Thickness = D + d + d
+                        <br><br>
+
+                        Constant = Weft Mesh × d
+                    </p>
+
+                </div>
+
+                <div class="formula-box">
+
+                    <h2>Plain Weave Formula</h2>
+
+                    <p>
+                        Opening =
+                        (25.4 / Warp Mesh) - D
+                        <br><br>
+
+                        Thickness = D + d + d
+                        <br><br>
+
+                        Constant = Weft Mesh × d
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            Fully Responsive • Mobile Optimized • Rich Glass UI
+        </div>
+
     </div>
 
-    <div class="glass">
+    <!-- JAVASCRIPT -->
 
-        <div class="grid">
+    <script>
 
-            <div class="input-group">
-                <label>Warp Mesh (D)</label>
-                <input type="number" id="warpMesh" placeholder="Enter Warp Mesh">
-            </div>
+        function calculateMesh() {
 
-            <div class="input-group">
-                <label>Weft Mesh</label>
-                <input type="number" id="weftMesh" placeholder="Enter Weft Mesh">
-            </div>
+            let warpMesh =
+                parseFloat(document.getElementById("warpMesh").value) || 0;
 
-            <div class="input-group">
-                <label>Warp Diameter</label>
-                <input type="number" id="warpDia" placeholder="Enter Warp Diameter">
-            </div>
+            let weftMesh =
+                parseFloat(document.getElementById("weftMesh").value) || 0;
 
-            <div class="input-group">
-                <label>Weft Diameter (d)</label>
-                <input type="number" id="weftDia" placeholder="Enter Weft Diameter">
-            </div>
+            let D =
+                parseFloat(document.getElementById("warpDia").value) || 0;
 
-            <div class="input-group">
-                <label>Weave Type</label>
-                <select id="weaveType">
-                    <option value="plain">Plain Weave</option>
-                    <option value="dutch">Dutch Weave</option>
-                </select>
-            </div>
+            let d =
+                parseFloat(document.getElementById("weftDia").value) || 0;
 
-        </div>
+            let weaveType =
+                document.getElementById("weaveType").value;
 
-        <div class="button-area">
-            <button onclick="calculateMesh()">
-                Calculate Now
-            </button>
-        </div>
+            let opening = 0;
+            let thickness = 0;
+            let constant = 0;
+            let weight = 0;
 
-        <!-- RESULTS -->
+            /* DUTCH WEAVE */
 
-        <div class="results">
+            if (weaveType === "dutch") {
 
-            <div class="card">
-                <h3>Opening (Micron)</h3>
-                <p id="opening">0</p>
-            </div>
+                let L = 25.4 / warpMesh;
 
-            <div class="card">
-                <h3>Thickness (T)</h3>
-                <p id="thickness">0</p>
-            </div>
+                opening =
+                    warpMesh *
+                    ((L - D - d) /
+                        (L + D + d));
 
-            <div class="card">
-                <h3>Constant</h3>
-                <p id="constant">0</p>
-            </div>
+                thickness =
+                    D + d + d;
 
-            <div class="card">
-                <h3>Weight / m²</h3>
-                <p id="weight">0</p>
-            </div>
+                constant =
+                    weftMesh * d;
 
-        </div>
+                weight =
+                    ((D * D * 0.493 * warpMesh) / 2)
+                    +
+                    (d * d * 0.493 * weftMesh)/2;
 
-        <!-- FORMULAS -->
+            }
 
-        <div class="formulas">
+            /* PLAIN WEAVE */
 
-            <div class="formula-box">
-                <h2>Dutch Weave Formula</h2>
-                <p>
-                    Opening = D × (L - D - d) / (L + D + d)<br>
-                    Thickness = Warp Dia + Weft Dia + Weft Dia<br>
-                    Constant = Weft Mesh × Weft Dia
-                </p>
-            </div>
+            else {
 
-            <div class="formula-box">
-                <h2>Plain Weave Formula</h2>
-                <p>
-                    Opening = (25.4 / Warp Mesh) - Warp Diameter<br>
-                    Thickness = Warp Dia + Weft Dia + Weft Dia<br>
-                    Constant = Weft Mesh × Weft Dia
-                </p>
-            </div>
+                opening =
+                    (25.4 / warpMesh) - D;
 
-        </div>
+                thickness =
+                    D + d + d;
 
-    </div>
+                constant =
+                    weftMesh * d;
 
-    <div class="footer">
-        Fully Responsive • Mobile Optimized • Rich Glass UI
-    </div>
+                weight =
+                    D * D * 0.493 * warpMesh;
 
-</div>
+            }
 
-<script>
+            /* SHOW RESULTS */
 
-function calculateMesh(){
+            document.getElementById("opening").innerHTML =
+                opening.toFixed(3);
 
-    let warpMesh = parseFloat(document.getElementById("warpMesh").value) || 0;
-    let weftMesh = parseFloat(document.getElementById("weftMesh").value) || 0;
-    let warpDia = parseFloat(document.getElementById("warpDia").value) || 0;
-    let weftDia = parseFloat(document.getElementById("weftDia").value) || 0;
-    let weaveType = document.getElementById("weaveType").value;
+            document.getElementById("thickness").innerHTML =
+                thickness.toFixed(3);
 
-    let opening = 0;
-    let thickness = 0;
-    let constant = 0;
-    let weight = 0;
+            document.getElementById("constant").innerHTML =
+                constant.toFixed(3);
 
-    if(weaveType === "dutch"){
+            document.getElementById("weight").innerHTML =
+                weight.toFixed(3) + " Kg";
 
-        let L = 25.4 / warpMesh;
+        }
 
-        opening =
-        warpMesh *
-        ((L - warpDia - weftDia) /
-        (L + warpDia + weftDia));
-
-        thickness =
-        warpDia + weftDia + weftDia;
-
-        constant =
-        weftMesh * weftDia;
-
-        weight =
-        ((warpDia * warpDia * 0.493 * warpMesh) / 2)
-        +
-        (weftDia * weftDia * 0.493 * weftMesh);
-
-    }
-
-    else{
-
-        opening =
-        (25.4 / warpMesh) - warpDia;
-
-        thickness =
-        warpDia + weftDia + weftDia;
-
-        constant =
-        weftMesh * weftDia;
-
-        weight =
-        warpDia * warpDia * 0.493 * warpMesh;
-
-    }
-
-    document.getElementById("opening").innerHTML =
-    opening.toFixed(3);
-
-    document.getElementById("thickness").innerHTML =
-    thickness.toFixed(3);
-
-    document.getElementById("constant").innerHTML =
-    constant.toFixed(3);
-
-    document.getElementById("weight").innerHTML =
-    weight.toFixed(3) + " Kg";
-
-}
-
-</script>
+    </script>
 
 </body>
+
 </html>
