@@ -432,3 +432,45 @@ button:hover{
         padding:20px;
     }
 }
+select{
+    width:100%;
+    height:56px;
+
+    background:
+    linear-gradient(
+    145deg,
+    #0f172a,
+    #111827);
+
+    color:white;
+
+    border:1px solid #334155;
+    border-radius:14px;
+
+    padding:0 15px;
+}
+
+select option{
+    background:#1e293b;
+    color:#f8fafc;
+    
+}
+.select-wrapper{
+    position:relative;
+}
+
+.select-wrapper::after{
+    content:"▼";
+
+    position:absolute;
+    right:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#7dd3fc;
+
+    pointer-events:none;
+
+    font-size:.8rem;
+}
